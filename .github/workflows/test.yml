@@ -35,4 +35,4 @@ jobs:
         if: ${{ always() }} # Use always to ensure that the notification is also send on failure of former steps
         uses: SimonScholz/google-chat-action@main
         with:
-          webhookUrl: 'https://chat.googleapis.com/v1/spaces/AAQAUIWZASU/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=SS1gm4bzWN9RruIIDLzy_veT64wDioeE6jAagVgcbPY'
+          webhookUrl: '{{secrets.GOOGLE_CHAT_WEBHOOK_URL}}''
