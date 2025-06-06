@@ -39,4 +39,5 @@ jobs:
           jobStatus: ${{ job.status }}
           title: Production Deployment Notification 🔔
           subtitle: 'Deployment to ${{ inputs.environment }} was ${{ job.status }}'
-          imageUrl: 'https://media1.tenor.com/m/ZQdH9YACdxQAAAAC/ip-meme.gif'
+          imageUrl: ${{ job.status == 'success' && 'https://media1.tenor.com/m/ZQdH9YACdxQAAAAC/ip-meme.gif' || 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Ftroll-meme&psig=AOvVaw3EtKrcdEOnTVoBVykxbTYg&ust=1749289836494000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCOiqw8zC3I0DFQAAAAAdAAAAABAEs' }}
+          
