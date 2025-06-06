@@ -29,7 +29,9 @@ jobs:
 
       - name: Test Echo
         id: echo
-        run: echo "Hello, this is a test run for environment ${{ inputs.environment }} in region ${{ inputs.aws_region }}"
+        run: |
+            echo "Hello, this is a test run for environment ${{ inputs.environment }} in region ${{ inputs.aws_region }}"
+            exit 1
 
       - name: Notify Google Chat
         if: ${{ always() }} # Use always to ensure that the notification is also send on failure of former steps
