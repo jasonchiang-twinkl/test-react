@@ -35,7 +35,7 @@ jobs:
         if: ${{ always() }} # Use always to ensure that the notification is also send on failure of former steps
         uses: SimonScholz/google-chat-action@main
         with:
-          webhookUrl: '{{secrets.GOOGLE_CHAT_WEBHOOK_URL}}'
+          webhookUrl: '${{secrets.GOOGLE_CHAT_WEBHOOK_URL}}'
           jobStatus: ${{ job.status }}
           title: Production Deployment Notification 🔔
           subtitle: 'Deployment to ${{ inputs.environment }} was ${{ job.status }}'
