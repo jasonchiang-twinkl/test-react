@@ -42,5 +42,5 @@ jobs:
           imageType: 'SQUARE'
           title: Production Deployment Notification 🔔
           subtitle: 'Deployment to ${{ inputs.environment }} was ${{ job.status }}'
-          imageUrl: ${{ job.status == 'success' && 'https://media1.tenor.com/m/ZQdH9YACdxQAAAAC/ip-meme.gif' || 'https://i0.wp.com/s2.quickmeme.com/img/14/148dd98d2dd039094309d0606717ab7f51337c2a2689278c02b1bbab4a3ec0e5.jpg' }}
+          imageUrl: ${{ job.status == 'success' && 'https://media1.tenor.com/m/ZQdH9YACdxQAAAAC/ip-meme.gif' || 'https://i.pinimg.com/736x/df/81/97/df8197b453631724fef58d06ad4133f3.jpg' }}
           
