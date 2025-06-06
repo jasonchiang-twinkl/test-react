@@ -1,0 +1,38 @@
+name: 'Test Run'
+run-name: 'Deleting all record in curriculum architect table for ${{ inputs.environment }}::${{ inputs.aws_region }}'
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        required: true
+        description: Environment
+        options:
+          - development
+          - staging
+          - production # woah! don't do this!
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+   google-chat-action:
+    name: Google Chat GitHub Action
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+
+      - name: Test Echo
+        id: echo
+        run: echo "Hello, this is a test run for environment ${{ inputs.environment }} in region ${{ inputs.aws_region }}"
+
+      - name: Notify Google Chat
+        if: ${{ always() }} # Use always to ensure that the notification is also send on failure of former steps
+        uses: SimonScholz/google-chat-action@main
+        with:
+          webhookUrl: 'https://chat.googleapis.com/v1/spaces/AAQAUIWZASU/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=SS1gm4bzWN9RruIIDLzy_veT64wDioeE6jAagVgcbPY'
