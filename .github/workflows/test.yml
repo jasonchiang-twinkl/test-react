@@ -18,8 +18,8 @@ permissions:
   contents: read
 
 jobs:
-   google-chat-action:
-    name: Google Chat GitHub Action
+  google-chat-action:
+    name: Google Chat GitHub Action Pt1
     runs-on: ubuntu-latest
 
     steps:
@@ -30,8 +30,14 @@ jobs:
       - name: Test Echo
         id: echo
         run: |
-            echo "Hello, this is a test run for environment ${{ inputs.environment }} in region ${{ inputs.aws_region }}"
-            
+          echo "Hello, this is a test run for environment ${{ inputs.environment }} in region ${{ inputs.aws_region }}"
+          exit 1
+
+  run-google-chat:
+    name: Google Chat GitHub Action Pt2
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Notify Google Chat
         if: ${{ always() }} # Use always to ensure that the notification is also send on failure of former steps
         uses: SimonScholz/google-chat-action@main
