@@ -37,6 +37,7 @@ jobs:
     needs: [google-chat-action]
     name: Google Chat GitHub Action Pt2
     runs-on: ubuntu-latest
+    if: ${{ always() }} # Ensure this job runs even if the previous one fails
 
     steps:
       - name: Notify Google Chat
