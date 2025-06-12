@@ -40,6 +40,11 @@ jobs:
     if: ${{ always() }} # Ensure this job runs even if the previous one fails
 
     steps:
+      - name: Fail if previous jobs failed
+        if: ${{ needs.google-chat-action.result != 'success' }}
+        run: |
+          echo "One or more previous jobs failed."
+          exit 1
       - name: Notify Google Chat
         if: ${{ always() }} # Use always to ensure that the notification is also send on failure of former steps
         uses: SimonScholz/google-chat-action@main
